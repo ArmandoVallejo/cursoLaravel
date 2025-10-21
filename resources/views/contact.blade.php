@@ -7,8 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello World</h1>
-    <a href="{{ route("crud") }}">ir a crud</a>
-    
+    <h1>Contact 1</h1>
+    <p>{{ $nombre }}</p>
 </body>
 </html>
