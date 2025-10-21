@@ -1,12 +1,13 @@
 @extends('dashboard.master')
 
 @section('content')
-    <form action="" method="post">
+    <form action="{{ route('post.store') }}" method="post">
+        @csrf
         <label for="">Title</label>
         <input type="text" name="title">
 
         <label for="">Slug</label>
-        <input type="text" name="title">
+        <input type="text" name="slug">
 
         <label for="">Content</label>
         <textarea name="content"></textarea>
