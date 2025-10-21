@@ -7,7 +7,14 @@ Route::get('/', function () {
 });
 
 Route::get('/contact', function () {
-    return view('contact', ['nombre' => 'Juan']);
+
+    //es lo mismo redirect->route que to_route
+    return redirect()->route('contact2');
+    //return to_route('contact2');
+    // // //
+    //return redirect('/contact2');
+
+    // return view('contact', ['nombre' => 'Juan']);
 })->name('contact');
 
 Route::get('/contact2', function () {
