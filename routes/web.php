@@ -9,12 +9,12 @@ Route::get('/', function () {
 Route::get('/contact', function () {
 
     //es lo mismo redirect->route que to_route
-    return redirect()->route('contact2');
+    //return redirect()->route('contact2');
     //return to_route('contact2');
     // // //
     //return redirect('/contact2');
 
-    // return view('contact', ['nombre' => 'Juan']);
+    return view('contact', ['name' => 'Juan']);
 })->name('contact');
 
 Route::get('/contact2', function () {
