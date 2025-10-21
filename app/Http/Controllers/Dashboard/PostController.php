@@ -13,17 +13,26 @@ class PostController extends Controller
      */
     public function index()
     {
-        Post::create(
-            [
-                'title' => 'Test title',
-                'slug' => 'test-slug',
-                'content' => 'Test content',
-                'category_id' => 1,
-                'description' => 'Test description',
-                'posted' => 'no',
-                'image' => 'test-image.jpg'
-            ]
-        );
+        $post = Post::find(1);
+        $post->update([
+            'title' => 'Updated title',
+            'slug' => 'updated-slug',
+            'content' => 'Updated content',
+            'description' => 'Updated description',
+            'posted' => 'yes',
+            'image' => 'updated-image.jpg'
+        ]);
+        // Post::create(
+        //     [
+        //         'title' => 'Test title',
+        //         'slug' => 'test-slug',
+        //         'content' => 'Test content',
+        //         'category_id' => 1,
+        //         'description' => 'Test description',
+        //         'posted' => 'no',
+        //         'image' => 'test-image.jpg'
+        //     ]
+        // );
         return 'Index';
     }
 
