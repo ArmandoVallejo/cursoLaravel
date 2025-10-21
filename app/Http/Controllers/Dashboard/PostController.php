@@ -14,14 +14,16 @@ class PostController extends Controller
     public function index()
     {
         $post = Post::find(1);
-        $post->update([
-            'title' => 'Updated title',
-            'slug' => 'updated-slug',
-            'content' => 'Updated content',
-            'description' => 'Updated description',
-            'posted' => 'yes',
-            'image' => 'updated-image.jpg'
-        ]);
+        $post->delete();
+
+        // $post->update([
+        //     'title' => 'Updated title',
+        //     'slug' => 'updated-slug',
+        //     'content' => 'Updated content',
+        //     'description' => 'Updated description',
+        //     'posted' => 'yes',
+        //     'image' => 'updated-image.jpg'
+        // ]);
         // Post::create(
         //     [
         //         'title' => 'Test title',
