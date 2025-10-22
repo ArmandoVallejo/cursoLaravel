@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Post;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,7 +23,7 @@ class PutRequest extends FormRequest
     {
         return [
             'title' => 'required|min:5|max:500',
-            'slug' => 'required|min:5|max:500|unique:posts,slug,' . $this->route('post')->id,
+            'slug' => 'required|min:5|max:500|unique:posts,slug,'.$this->route('post')->id,
             'description' => 'nullable|min:7',
             'content' => 'nullable|min:7',
             'posted' => 'required',
