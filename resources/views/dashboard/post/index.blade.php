@@ -24,6 +24,13 @@
                     <ul>
                         <li><a href="{{ route('post.edit', $post) }}">Edit</a></li>
                         <li><a href="{{ route('post.show', $post) }}">Show</a></li>
+                        <li>
+                            <form action="{{ route('post.destroy', $post) }}" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit">Delete</button>
+                            </form>
+                        
                     </ul>
                 </td>
             </tr>
