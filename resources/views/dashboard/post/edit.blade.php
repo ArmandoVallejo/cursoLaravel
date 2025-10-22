@@ -6,7 +6,7 @@
     @include('dashboard.fragment.errors-form')
     <h2>Editar Post: {{ $post->title }}</h2>
 
-    <form action="{{ route('post.update', $post->id) }}" method="post">
+    <form action="{{ route('post.update', $post->id) }}" method="post" enctype="multipart/form-data">
         @method('PATCH')
         @csrf
         <label for="">Title</label>
@@ -33,6 +33,9 @@
             <option {{ old('posted', $post->posted) == 'no' ? 'selected' : '' }} value="no">No</option>
             <option {{ old('posted', $post->posted) == 'yes' ? 'selected' : '' }} value="yes">Yes</option>
         </select>
+
+        <label for="">Image</label>
+        <input type="file" name="image">
 
         <button type="submit">Send</button>
     </form>
