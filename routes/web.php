@@ -12,3 +12,8 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::resource('post', PostController::class);
     Route::resource('category', CategoryController::class);
 });
+
+//Route::resources([
+  //  'posts' => PostController::class,
+    //'categories' => CategoryController::class,
+//]);
