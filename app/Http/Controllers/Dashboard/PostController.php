@@ -15,31 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post = Post::find(2);
-        $category = Category::find(1);
-        dd($category->posts);
-        //$post->delete();
+        $posts = Post::get();
+        return view('dashboard.post.index', compact('posts'));
 
-        // $post->update([
-        //     'title' => 'Updated title',
-        //     'slug' => 'updated-slug',
-        //     'content' => 'Updated content',
-        //     'description' => 'Updated description',
-        //     'posted' => 'yes',
-        //     'image' => 'updated-image.jpg'
-        // ]);
-        // Post::create(
-        //     [
-        //         'title' => 'Test title',
-        //         'slug' => 'test-slug',
-        //         'content' => 'Test content',
-        //         'category_id' => 1,
-        //         'description' => 'Test description',
-        //         'posted' => 'no',
-        //         'image' => 'test-image.jpg'
-        //     ]
-        // );
-        return 'Index';
+    
     }
 
     /**
