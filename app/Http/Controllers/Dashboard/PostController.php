@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\StoreRequest;
+use App\Http\Requests\PutRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -17,17 +18,15 @@ class PostController extends Controller
     {
         $posts = Post::paginate(3);
         return view('dashboard.post.index', compact('posts'));
-
-    
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    { 
+        //saca de las categorias solo el id y el title
         $categories = Category::pluck('id', 'title');
-
         return view('dashboard.post.create', compact('categories'));
     }
 
@@ -36,10 +35,11 @@ class PostController extends Controller
      */
     public function store(StoreRequest $request)
     {
+        //Valida los datos del request mediante el StoreRequest y si todo es correcto crea el post
         Post::create(
             $request->validated()
         );
-
+        //redirige a el listado de posts (index)
         return redirect()->route('post.index');
     }
 
@@ -48,7 +48,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        
     }
 
     /**
@@ -56,15 +56,19 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $categories = Category::pluck('id', 'title');
+        return view('dashboard.post.edit', compact('post', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(PutRequest $request, Post $post)
     {
-        //
+        $post->update(
+            $request->validated()
+        );
+        return redirect()->route('post.index');
     }
 
     /**

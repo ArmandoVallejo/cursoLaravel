@@ -22,8 +22,8 @@
                 <td>{{ $post->category->title }}</td>
                 <td>
                     <ul>
-                        <li><a href="{{ route('post.edit', $post->id) }}">Edit</a></li>
-                        <li><a href="{{ route('post.show', $post->id) }}">Show</a></li>
+                        <li><a href="{{ route('post.edit', $post) }}">Edit</a></li>
+                        <li><a href="{{ route('post.show', $post) }}">Show</a></li>
                     </ul>
                 </td>
             </tr>
