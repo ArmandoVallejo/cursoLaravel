@@ -13,6 +13,10 @@ Route::get('post/all', [PostController::class, 'all']);
 
 Route::get('category/{category}/posts', [CategoryController::class, 'getPosts']);
 
+Route::get('post/slug/{slug}', [PostController::class, 'slug']);
+
+Route::get('category/slug/{slug}', [CategoryController::class, 'slug']);
+
 Route::get('category/all', [CategoryController::class, 'all']);
 
 Route::resource('category', CategoryController::class)->except(['create', 'edit']);

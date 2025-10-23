@@ -19,6 +19,11 @@ class CategoryController extends Controller
         return response()->json(Category::get());
     }
 
+    public function slug($slug){
+        $category = Category::where('slug', $slug)->firstOrFail();
+        return response()->json($category);
+    }
+
     public function store(StoreRequest $request)
     {
         $category = Category::create($request->validated());

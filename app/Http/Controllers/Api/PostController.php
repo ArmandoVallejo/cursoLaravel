@@ -20,6 +20,11 @@ class PostController extends Controller
         return response()->json(Post::get());
     }
 
+    public function slug($slug){
+        $post = Post::where('slug', $slug)->firstOrFail();
+        return response()->json($post);
+    }
+
     public function store(StoreRequest $request)
     {
         $post = Post::create($request->validated());
