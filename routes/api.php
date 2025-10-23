@@ -3,10 +3,9 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\PostController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('post/all', [PostController::class, 'all']);
+Route::get('post/all', [PostController::class, 'all'])->middleware('auth:api');
 
 Route::get('category/{category}/posts', [CategoryController::class, 'getPosts']);
 
