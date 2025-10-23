@@ -9,6 +9,8 @@ Route::get('post/all', [PostController::class, 'all'])->middleware('auth:api');
 
 Route::get('user', [AuthController::class, 'user'])->middleware('auth:api');
 
+Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:api');
+
 Route::get('category/{category}/posts', [CategoryController::class, 'getPosts']);
 
 Route::get('post/slug/{slug}', [PostController::class, 'slug']);
