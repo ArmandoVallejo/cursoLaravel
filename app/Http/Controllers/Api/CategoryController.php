@@ -41,4 +41,9 @@ class CategoryController extends Controller
         $category->delete();
         return response()->json("ok", 204);
     }
+
+    public function getPosts(Category $category)
+    {
+        return response()->json($category->posts);
+    } 
 }
